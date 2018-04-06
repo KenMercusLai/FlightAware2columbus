@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  ijcai18:
+    build: .
+    volumes:
+      - .:/opt
