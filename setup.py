@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Setup script for IJCAI18."""
+"""Setup script for FlightAware2columbus."""
 
 import os
 import sys
@@ -8,7 +8,7 @@ import sys
 import setuptools
 
 
-PACKAGE_NAME = 'IJCAI18'
+PACKAGE_NAME = 'FlightAware2columbus'
 MINIMUM_PYTHON_VERSION = 3, 6
 
 
@@ -45,8 +45,8 @@ setuptools.setup(
     name=read_package_variable('__project__'),
     version=read_package_variable('__version__'),
 
-    description="IJCAI-18",
-    url='https://github.com/KenMercusLai/testrepo',
+    description="FlightAware2columbus",
+    url='https://github.com/KenMercusLai/FlightAware2columbus',
     author='Ken Lai',
     author_email='ken.mercus.lai@gmail.com',
 

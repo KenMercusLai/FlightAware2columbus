@@ -14,7 +14,7 @@ else:
     notify = Notifier.notify
 
 
-watch_paths = ["IJCAI18", "tests"]
+watch_paths = ["flightaware2columbus", "tests"]
 
 
 @select_runnable('python')

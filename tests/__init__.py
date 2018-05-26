@@ -1,1 +1,1 @@
-"""Integration tests for the `IJCAI18` package."""
+"""Integration tests for the `FlightAware2columbus` package."""

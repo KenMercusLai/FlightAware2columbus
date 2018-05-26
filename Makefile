@@ -1,7 +1,7 @@
 # Project settings
-PROJECT := IJCAI18
-PACKAGE := IJCAI18
-REPOSITORY := KenMercusLai/testrepo
+PROJECT := FlightAware2columbus
+PACKAGE := FlightAware2columbus
+REPOSITORY := KenMercusLai/FlightAware2columbus
 PACKAGES := $(PACKAGE) tests
 CONFIG := $(shell ls *.py)
 MODULES := $(shell find $(PACKAGES) -name '*.py') $(CONFIG)

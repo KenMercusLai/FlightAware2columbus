@@ -1,7 +1,7 @@
-site_name: IJCAI18
-site_description: IJCAI-18
+site_name: FlightAware2columbus
+site_description: FlightAware2columbus
 site_author: Ken Lai
-repo_url: https://github.com/KenMercusLai/testrepo
+repo_url: https://github.com/KenMercusLai/FlightAware2columbus
 
 theme: readthedocs
 
