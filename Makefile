@@ -1,6 +1,6 @@
 # Project settings
-PROJECT := FlightAware2columbus
-PACKAGE := FlightAware2columbus
+PROJECT := flightaware2columbus
+PACKAGE := flightaware2columbus
 REPOSITORY := KenMercusLai/FlightAware2columbus
 PACKAGES := $(PACKAGE) tests
 CONFIG := $(shell ls *.py)

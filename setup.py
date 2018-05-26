@@ -8,7 +8,7 @@ import sys
 import setuptools
 
 
-PACKAGE_NAME = 'FlightAware2columbus'
+PACKAGE_NAME = 'flightaware2columbus'
 MINIMUM_PYTHON_VERSION = 3, 6
 
 
