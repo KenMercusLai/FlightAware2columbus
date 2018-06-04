@@ -18,22 +18,22 @@ class TestGPX_Writer(unittest.TestCase):
                      'average_speed': '222km/h',
                      'max_speed': '333km/h',
                      'max_height': '100m'}
-        self.points = [('22.567899', '114.057558', '129', '2018-05-22T15:27:52Z'),
-                       ('22.567909', '114.057575', '131', '2018-05-22T15:27:55Z'),
-                       ('22.567909', '114.057571', '131', '2018-05-22T15:27:56Z'),
-                       ('22.567909', '114.057570', '131', '2018-05-22T15:27:57Z'),
-                       ('22.567903', '114.057561', '131', '2018-05-22T15:28:00Z'),
-                       ('22.567896', '114.057543', '130', '2018-05-22T15:28:01Z'),
-                       ('22.567888', '114.057521', '128', '2018-05-22T15:28:02Z'),
-                       ('22.567881', '114.057503', '127', '2018-05-22T15:28:03Z')]
-
-    def test_xml_root(self):
-        ret = xml_root()
-        assert ret.attrib['version'] == '1.1'
-        assert ret.attrib['creator'] == 'Ken Lai (ken.mercus.lai@gmail.com)'
-        assert ret.attrib['xmlns:xsi'] == 'http://www.w3.org/2001/XMLSchema-instance'
-        assert ret.attrib['xmlns'] == 'http://www.topografix.com/GPX/1/1'
-        assert ret.attrib['xsi:schemaLocation'] == 'http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd'
+        self.points = [('22.567899', '114.057558',
+                        '129', '2018-05-22T15:27:52Z'),
+                       ('22.567909', '114.057575',
+                        '131', '2018-05-22T15:27:55Z'),
+                       ('22.567909', '114.057571',
+                        '131', '2018-05-22T15:27:56Z'),
+                       ('22.567909', '114.057570',
+                        '131', '2018-05-22T15:27:57Z'),
+                       ('22.567903', '114.057561',
+                        '131', '2018-05-22T15:28:00Z'),
+                       ('22.567896', '114.057543',
+                        '130', '2018-05-22T15:28:01Z'),
+                       ('22.567888', '114.057521',
+                        '128', '2018-05-22T15:28:02Z'),
+                       ('22.567881', '114.057503',
+                        '127', '2018-05-22T15:28:03Z')]
 
     def test_xml_description(self):
         ret = xml_description(xml_root(), self.desc)
@@ -75,3 +75,12 @@ class TestGPX_Writer(unittest.TestCase):
         assert root[0][2][0][0].text == '129'
         assert root[0][2][0][1].text == '2018-05-22T15:27:52Z'
         os.remove(self.test_filename)
+
+
+def test_xml_root():
+    ret = xml_root()
+    assert ret.attrib['version'] == '1.1'
+    assert ret.attrib['creator'] == 'Ken Lai (ken.mercus.lai@gmail.com)'
+    assert ret.attrib['xmlns:xsi'] == 'http://www.w3.org/2001/XMLSchema-instance'
+    assert ret.attrib['xmlns'] == 'http://www.topografix.com/GPX/1/1'
+    assert ret.attrib['xsi:schemaLocation'] == 'http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd'

@@ -25,8 +25,12 @@ def test_get_distance_hav():
 
     lon11, lat11 = (22.599578, 114.973129)
     lon21, lat21 = (34.0522342, -117.2436849)
-    assert get_distance_hav(lon1, lat1, lon2, lat2) == get_distance_hav(lon11, lat11, lon21, lat21)
+    assert get_distance_hav(lon1, lat1,
+                            lon2, lat2) == get_distance_hav(lon11, lat11,
+                                                            lon21, lat21)
 
     lon11, lat11 = (-22.599578, 114.973129)
     lon21, lat21 = (-34.0522342, -117.2436849)
-    assert get_distance_hav(lon1, lat1, lon2, lat2) == get_distance_hav(lon11, lat11, lon21, lat21)
+    assert get_distance_hav(lon1, lat1,
+                            lon2, lat2) == get_distance_hav(lon11, lat11,
+                                                            lon21, lat21)

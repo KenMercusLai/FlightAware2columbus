@@ -11,7 +11,7 @@ def hav(theta):
 
 
 def get_distance_hav(lat0, lng0, lat1, lng1):
-    "用haversine公式计算球面两点间的距离。"
+    """用haversine公式计算球面两点间的距离."""
     # 经纬度转换成弧度
     lat0 = radians(lat0)
     lat1 = radians(lat1)
