@@ -3,7 +3,8 @@ from datetime import datetime
 from tempfile import NamedTemporaryFile
 
 from flightaware2columbus.parsers import (convert_datetime, desc_columbus,
-                                          read_columbus)
+                                          flatten_list, read_columbus,
+                                          split_records, slices_records)
 
 
 class TestParsers(unittest.TestCase):
@@ -27,8 +28,9 @@ class TestParsers(unittest.TestCase):
 
     def test_read_columbus(self):
         ret = read_columbus(self.csv_file)
-        assert ret[0] == ('22.567899', '114.057558',
-                          '129', '2018-05-22T07:27:52Z')
+        assert ret[0] == 1
+        # ('22.567899', '114.057558',
+        #                   '129', '2018-05-22T07:27:52Z')
         assert ret[3] == ('22.567909', '114.057570',
                           '131', '2018-05-22T07:27:57Z')
         assert ret[6] == ('22.567888', '114.057521',
@@ -55,3 +57,33 @@ def test_convert_datetime():
     assert convert_datetime('180522', '072802', False) == datetime(
         2018, 5, 22, 7, 28, 2)
     assert convert_datetime('180522', '01') == '2018-05-22T00:00:01Z'
+
+
+def test_split_records():
+    assert split_records((0, 0, 0, '2018-05-22T07:28:02Z'),
+                         (0, 0.5, 0, '2018-05-22T08:28:02Z'),
+                         2) == [(0.0, 0, 0.0, '2018-05-22T07:28:02Z'),
+                                (0.0, 0.25, 0.0, '2018-05-22T07:58:02Z'),
+                                (0.0, 0.5, 0.0, '2018-05-22T08:28:02Z')]
+
+
+def test_flatten_list():
+    data = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]
+    assert flatten_list(data) == data
+
+    data2 = [(1, 2), [(2, 3), (3, 4)], (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]
+    assert flatten_list(data2) == data
+
+    data2 = [(1, 2), [(2, 3), (3, 4)],
+             [(4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]]
+    assert flatten_list(data2) == data
+
+
+def test_slices_records():
+    records = ((0, 0, 0, datetime(2018, 5, 22, 7, 28, 2)),
+               (0, 0.5, 0, datetime(2018, 5, 22, 8, 28, 2)))
+    ret = slices_records(records, 50)
+    assert len(ret) == 3
+    assert ret == [(0.0, 0, 0.0, datetime(2018, 5, 22, 7, 28, 2)),
+                   (0.0, 0.25, 0.0, datetime(2018, 5, 22, 7, 58, 2)),
+                   (0.0, 0.5, 0.0, datetime(2018, 5, 22, 8, 28, 2))]
