@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import click
-import gpx_writer, parsers
+import gpx_writer
+import parsers
 
 
 @click.group()
