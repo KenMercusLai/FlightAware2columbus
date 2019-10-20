@@ -54,3 +54,6 @@ round1_ijcai_18_*.txt
 \.pytest_cache/
 
 \.DS_Store
+/.venv
+/.vscode
+*.csv
