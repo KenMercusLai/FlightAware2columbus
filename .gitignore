@@ -57,3 +57,4 @@ round1_ijcai_18_*.txt
 /.venv
 /.vscode
 *.csv
+poetry.lock
