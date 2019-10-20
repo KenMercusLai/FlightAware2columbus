@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "flightaware2columbus"
+version = "0.1.2"
+description = ""
+authors = ["Ken M. Lai <ken.mercus.lai@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+click = "^7.0"
+requests-html = "^0.10.0"
+requests = "^2.22"
+
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.4"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
