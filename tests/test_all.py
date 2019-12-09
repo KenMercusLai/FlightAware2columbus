@@ -1,11 +1,12 @@
 # pylint: disable=no-self-use,missing-docstring
 
-# import unittest
+
 from unittest.mock import MagicMock
 
-# import click
-# from click.testing import CliRunner
+from click.testing import CliRunner
 from flightaware2columbus.__main__ import columbus
+
+
 # from flightaware2columbus.parsers import read_columbus
 
 
@@ -15,7 +16,9 @@ def test_columnbus_echo():
     xml_description = MagicMock()
     xml_trackpoints = MagicMock()
     write2xml = MagicMock()
-    columbus('file.csv', None)
+    runner = CliRunner()
+    ret = runner.invoke(columbus, ['--csv', 'file.csv'])
+    assert ret.exit_code == 0
     assert read_columbus.assert_called_once()
     assert desc_columbus.assert_called_once()
     assert xml_description.assert_called_once()
