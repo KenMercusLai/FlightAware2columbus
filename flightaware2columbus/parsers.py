@@ -73,14 +73,14 @@ def read_columbus(csv_file):
         for (_, _, DATE, TIME, latitude,
              longitude, height, _, _, _) in list(reader)[1:]:
             if latitude[-1] == 'N':
-                latitude = latitude[:-1]
+                latitude = latitude[:-1].strip()
             else:
-                latitude = '-' + latitude[:-1]
+                latitude = '-' + latitude[:-1].strip()
 
             if longitude[-1] == 'E':
-                longitude = longitude[:-1]
+                longitude = longitude[:-1].strip()
             else:
-                longitude = '-' + longitude[:-1]
+                longitude = '-' + longitude[:-1].strip()
 
             date_time = convert_datetime(DATE, TIME)
             ret.append((latitude, longitude, height, date_time))
